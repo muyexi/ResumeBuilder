@@ -1,0 +1,6 @@
+framework module Pods_ResumeBuilder_ResumeBuilderUITests {
+  umbrella header "Pods-ResumeBuilder-ResumeBuilderUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
