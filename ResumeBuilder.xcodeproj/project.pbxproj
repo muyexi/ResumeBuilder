@@ -19,6 +19,12 @@
 		8D351489282C1554009A47EE /* BaseFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351488282C1554009A47EE /* BaseFormViewController.swift */; };
 		8D35148A282C1554009A47EE /* BaseFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351488282C1554009A47EE /* BaseFormViewController.swift */; };
 		8D35148B282C1554009A47EE /* BaseFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351488282C1554009A47EE /* BaseFormViewController.swift */; };
+		8D35148D282CA46D009A47EE /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D35148C282CA46D009A47EE /* Skill.swift */; };
+		8D35148E282CA471009A47EE /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D35148C282CA46D009A47EE /* Skill.swift */; };
+		8D351490282CA473009A47EE /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D35148C282CA46D009A47EE /* Skill.swift */; };
+		8D351492282CAA9B009A47EE /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351491282CAA9B009A47EE /* BasicInfo.swift */; };
+		8D351493282CAA9B009A47EE /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351491282CAA9B009A47EE /* BasicInfo.swift */; };
+		8D351494282CAA9B009A47EE /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351491282CAA9B009A47EE /* BasicInfo.swift */; };
 		8D58E644282BBBCE001E46EC /* ResumeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E643282BBBCE001E46EC /* ResumeTextField.swift */; };
 		8D58E646282BBD41001E46EC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E645282BBD41001E46EC /* NSObject+Extension.swift */; };
 		8D58E647282BBD41001E46EC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E645282BBD41001E46EC /* NSObject+Extension.swift */; };
@@ -127,6 +133,8 @@
 		8D11A4AE282B92BB002B6A5F /* AddItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemCell.xib; sourceTree = "<group>"; };
 		8D351484282C1155009A47EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8D351488282C1554009A47EE /* BaseFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFormViewController.swift; sourceTree = "<group>"; };
+		8D35148C282CA46D009A47EE /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		8D351491282CAA9B009A47EE /* BasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfo.swift; sourceTree = "<group>"; };
 		8D58E643282BBBCE001E46EC /* ResumeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeTextField.swift; sourceTree = "<group>"; };
 		8D58E645282BBD41001E46EC /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		8D58E651282BCD45001E46EC /* SkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +280,8 @@
 				8D8B8EE9282A4CE900862D78 /* WorkSummary.swift */,
 				8D8B8EED282A4CFE00862D78 /* ProjectDetail.swift */,
 				8D8B8EF1282A4DD000862D78 /* EducationDetail.swift */,
+				8D35148C282CA46D009A47EE /* Skill.swift */,
+				8D351491282CAA9B009A47EE /* BasicInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -564,6 +574,7 @@
 				8D351485282C1155009A47EE /* HomeViewController.swift in Sources */,
 				8D8B8F28282A64D100862D78 /* ProjectDetailCell.swift in Sources */,
 				8D8B8F18282A632200862D78 /* WorkSummaryCell.swift in Sources */,
+				8D351492282CAA9B009A47EE /* BasicInfo.swift in Sources */,
 				8D8B8EEA282A4CE900862D78 /* WorkSummary.swift in Sources */,
 				8D8B8F03282A5EA800862D78 /* FieldCell.swift in Sources */,
 				8D8B8EFE282A593200862D78 /* EducationDetailViewController.swift in Sources */,
@@ -577,6 +588,7 @@
 				8D58E646282BBD41001E46EC /* NSObject+Extension.swift in Sources */,
 				8D8B8EB3282A4A7000862D78 /* AppDelegate.swift in Sources */,
 				8D11A4AB282B92AF002B6A5F /* AddItemCell.swift in Sources */,
+				8D35148D282CA46D009A47EE /* Skill.swift in Sources */,
 				8D8B8EFA282A590000862D78 /* ProjectDetailViewController.swift in Sources */,
 				8D8B8EB5282A4A7000862D78 /* SceneDelegate.swift in Sources */,
 			);
@@ -586,11 +598,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D35148E282CA471009A47EE /* Skill.swift in Sources */,
 				8D8B8F15282A629100862D78 /* UIView+Extension.swift in Sources */,
 				8D11A4AC282B92AF002B6A5F /* AddItemCell.swift in Sources */,
 				8D8B8EF7282A58B700862D78 /* WorkSummaryViewController.swift in Sources */,
 				8D8B8EEF282A4CFE00862D78 /* ProjectDetail.swift in Sources */,
 				8D8B8EEB282A4CE900862D78 /* WorkSummary.swift in Sources */,
+				8D351493282CAA9B009A47EE /* BasicInfo.swift in Sources */,
 				8D8B8F04282A5EA800862D78 /* FieldCell.swift in Sources */,
 				8D8B8F19282A632200862D78 /* WorkSummaryCell.swift in Sources */,
 				8D8B8EFB282A590000862D78 /* ProjectDetailViewController.swift in Sources */,
@@ -615,6 +629,7 @@
 			files = (
 				8D8B8EE8282A4BE700862D78 /* Resume.swift in Sources */,
 				8D8B8EF8282A58B700862D78 /* WorkSummaryViewController.swift in Sources */,
+				8D351494282CAA9B009A47EE /* BasicInfo.swift in Sources */,
 				8D58E654282BCD45001E46EC /* SkillViewController.swift in Sources */,
 				8D8B8EEC282A4CE900862D78 /* WorkSummary.swift in Sources */,
 				8D8B8ED4282A4A7200862D78 /* ResumeBuilderUITests.swift in Sources */,
@@ -622,6 +637,7 @@
 				8D8B8F00282A593200862D78 /* EducationDetailViewController.swift in Sources */,
 				8D8B8F36282A6A4700862D78 /* SkillCell.swift in Sources */,
 				8D8B8ED6282A4A7200862D78 /* ResumeBuilderUITestsLaunchTests.swift in Sources */,
+				8D351490282CA473009A47EE /* Skill.swift in Sources */,
 				8D35148B282C1554009A47EE /* BaseFormViewController.swift in Sources */,
 				8D8B8F16282A629100862D78 /* UIView+Extension.swift in Sources */,
 				8D8B8EF0282A4CFE00862D78 /* ProjectDetail.swift in Sources */,

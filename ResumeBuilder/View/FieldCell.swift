@@ -24,26 +24,4 @@ class FieldCell: UITableViewCell, UITextFieldDelegate {
     func setup(title: String) {
         titleLabel.text = title
     }
-
-    
-    // MARK: - UITextFieldDelegate
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else {
-            return
-        }
-        
-        if indexPath?.section == 1 {
-            if indexPath?.row == 0 {
-                Resume.shared.mobileNumber = text
-            } else if indexPath?.row == 1 {
-                Resume.shared.emailAddress = text
-            } else if indexPath?.row == 2 {
-                Resume.shared.residenceAddress = text
-            } else if indexPath?.row == 3 {
-                Resume.shared.careerObjective = text
-            } else if indexPath?.row == 4, let num = Int(text) {
-                Resume.shared.yearsOfExperience = num
-            }
-        }
-    }
 }

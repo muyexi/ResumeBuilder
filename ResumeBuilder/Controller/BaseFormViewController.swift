@@ -9,18 +9,29 @@ import Foundation
 import UIKit
 
 protocol BaseFormProtocol {
-    func didEndEditing(text: String, indexPath: IndexPath)
+    func didEdit(text: String, indexPath: IndexPath)
 }
 
-class BaseFormViewController: UITableViewController, BaseFormProtocol {
+class BaseFormViewController<T: FormModelProtocol>: UITableViewController, UITextFieldDelegate, BaseFormProtocol {
     var titles: [String] {
         return []
+    }
+    
+    var model: T = T()
+    
+    var completion: ((T) -> Void)?
+    
+    convenience init(completion: @escaping ((T) -> Void)) {
+        self.init()
+        
+        self.completion = completion
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        tableView.separatorColor = .clear
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "DONE", style: .done, target: self, action: #selector(save))
     }
     
     // MARK: - UITableViewDataSource
@@ -33,6 +44,7 @@ class BaseFormViewController: UITableViewController, BaseFormProtocol {
         
         if cell == nil {
             cell = FieldCell.loadNib()
+            cell?.textField.delegate = self
         }
         
         let title = titles[indexPath.row]
@@ -42,34 +54,58 @@ class BaseFormViewController: UITableViewController, BaseFormProtocol {
     }
     
     // MARK: - UITextFieldDelegate
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let postion = textField.convert(textField.bounds.origin, to: tableView)
 
         guard let indexPath = tableView.indexPathForRow(at: postion) else {
-            return
+            return true
         }
         
-        guard let text = textField.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else {
-            return
+        if let text = textField.text, let range = Range(range, in: text) {
+            let newText = text.replacingCharacters(in: range, with: string).trimmingCharacters(in: .whitespaces)
+            
+            if !newText.isEmpty {
+                didEdit(text: newText, indexPath: indexPath)
+            }
         }
         
-        didEndEditing(text: text, indexPath: indexPath)
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - BaseFormProtocol
-    func didEndEditing(text: String, indexPath: IndexPath) {
+    func didEdit(text: String, indexPath: IndexPath) {
         
     }
     
     // MARK: - Private
-    func alertMissingData() {
-        let alert = UIAlertController(title: "Data is missing!", message: nil, preferredStyle: .alert)
-        alert.addTextField()
+    func alert(title: String, showDiscard: Bool = false) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Discard", style: .cancel) { action in
+            self.dismiss(animated: true)
+        }
+        if showDiscard {
+            alert.addAction(cancelAction)
+        }
         
         let confirmAction = UIAlertAction(title: "Confirm", style: .default, handler: nil)
         alert.addAction(confirmAction)
         
         present(alert, animated: true)
+    }
+    
+    @objc func save() {
+        let result = model.validate()
+        if result.isValid {
+            dismiss(animated: true)
+            self.completion?(self.model)
+        } else {
+            alert(title: result.msg ?? "Data is not valid!", showDiscard: true)
+        }
     }
 }
 

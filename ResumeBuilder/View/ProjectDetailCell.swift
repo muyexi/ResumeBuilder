@@ -25,7 +25,7 @@ class ProjectDetailCell: UITableViewCell {
         nameLabel.text = project.name
         sizeLabel.text = project.teamSize?.description
         summaryLabel.text = project.summary
-        technologyLabel.text = project.usedTechnologies?.joined(separator: ", ")
+        technologyLabel.text = project.usedTechnologies
         roleLabel.text = project.role
     }
 }

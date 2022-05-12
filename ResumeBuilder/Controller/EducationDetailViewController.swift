@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class EducationDetailViewController: BaseFormViewController {
+class EducationDetailViewController: BaseFormViewController<EducationDetail> {
     override var titles: [String] {
         return ["Class", "Passing year", "CGPA"]
     }
@@ -17,5 +17,16 @@ class EducationDetailViewController: BaseFormViewController {
         super.viewDidLoad()
         
         title = "Education Detail"
-    }    
+    }
+    
+    // MARK: - BaseFormProtocol
+    override func didEdit(text: String, indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            model.educationClass = text
+        } else if indexPath.row == 1 {
+            model.passingYear = text
+        } else if (indexPath.row == 2) {
+            model.cgpa = text
+        }
+    }
 }

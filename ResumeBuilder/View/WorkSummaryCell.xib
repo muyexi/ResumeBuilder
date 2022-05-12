@@ -31,12 +31,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJt-3N-y5T">
                                         <rect key="frame" x="391" y="12" width="8" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="32k-wb-DJF"/>
                                     <constraint firstAttribute="trailing" secondItem="JJt-3N-y5T" secondAttribute="trailing" constant="15" id="DgS-IO-cFY"/>
                                     <constraint firstItem="f6i-Os-oVx" firstAttribute="centerY" secondItem="trY-WY-XPI" secondAttribute="centerY" id="Ds5-gg-GG2"/>
                                     <constraint firstItem="JJt-3N-y5T" firstAttribute="centerY" secondItem="trY-WY-XPI" secondAttribute="centerY" id="IdT-Tn-eYa"/>
@@ -55,7 +56,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJR-mf-auY">
                                         <rect key="frame" x="391" y="12" width="8" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -65,6 +66,7 @@
                                     <constraint firstItem="hpk-0g-vcf" firstAttribute="leading" secondItem="5vc-hb-zg9" secondAttribute="leading" constant="15" id="N6b-IR-tOg"/>
                                     <constraint firstAttribute="trailing" secondItem="fJR-mf-auY" secondAttribute="trailing" constant="15" id="Yht-IY-J80"/>
                                     <constraint firstItem="fJR-mf-auY" firstAttribute="centerY" secondItem="5vc-hb-zg9" secondAttribute="centerY" id="oNe-to-CeC"/>
+                                    <constraint firstAttribute="height" constant="44" id="wCc-Fy-gKx"/>
                                 </constraints>
                             </view>
                         </subviews>

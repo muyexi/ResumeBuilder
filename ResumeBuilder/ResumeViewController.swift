@@ -7,22 +7,39 @@
 
 import UIKit
 
-class ResumeViewController: UITableViewController, UITextFieldDelegate {
+class ResumeViewController: BaseFormViewController<BasicInfo> {
     
     var resume: Resume?
     
-    let titles = ["Mobile number", "Email Address", "Residence Address", "Career Objective", "Total Years of experience"]
-    let sectionTitles = [
-        ["Mobile number", "Email Address", "Residence Address", "Career Objective", "Total Years of experience"],
-        
-    ]
+    override var titles: [String] {
+        return ["Mobile number", "Email Address", "Residence Address", "Career Objective", "Total Years of experience"]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
-//        tableView.style = .grouped
+        tableView.separatorColor = .clear
+        
+        navigationItem.rightBarButtonItem = nil
+        
+        if let info = resume?.basicInfo {
+            model = info
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        resume?.basicInfo = model
+        resume?.save()
     }
     
     // MARK: - UITableViewDataSource
@@ -34,15 +51,31 @@ class ResumeViewController: UITableViewController, UITextFieldDelegate {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return titles.count
+            return super.tableView(tableView, numberOfRowsInSection: section)
         } else if section == 2 {
-            return resume?.workSummaries.count ?? 1
+            if let count = resume?.workSummaries.count, count > 0 {
+                return count + 1
+            } else {
+                return 1
+            }
         } else if section == 3 {
-            return resume?.skills.count ?? 1
+            if let count = resume?.skills.count, count > 0 {
+                return count + 1
+            } else {
+                return 1
+            }
         } else if section == 4 {
-            return resume?.educationDetails.count ?? 1
+            if let count = resume?.educationDetails.count, count > 0 {
+                return count + 1
+            } else {
+                return 1
+            }
         } else if section == 5 {
-            return resume?.projectDetails.count ?? 1
+            if let count = resume?.projectDetails.count, count > 0 {
+                return count + 1
+            } else {
+                return 1
+            }
         }
         
         return 0
@@ -60,29 +93,15 @@ class ResumeViewController: UITableViewController, UITextFieldDelegate {
             
             return cell!
         } else if section == 1 {
-            var cell = tableView.dequeueReusableCell(withIdentifier: FieldCell.identifier) as? FieldCell
+            let cell = super.tableView(tableView, cellForRowAt: indexPath) as? FieldCell
+            let info = resume?.basicInfo
             
-            if cell == nil {
-                cell = FieldCell.loadNib()
-                cell?.textField.delegate = self
-            }
-            
-            if indexPath.section == 1 {
-                if indexPath.row == 1 {
-                    cell?.textField.keyboardType = .emailAddress
-                } else if indexPath.row == 4 {
-                    cell?.textField.keyboardType = .numberPad
-                }
-            }
-            
-            let title = titles[indexPath.row]
-            cell?.setup(title: title)
+            let fields = [info?.mobileNumber, info?.emailAddress, info?.residenceAddress, info?.careerObjective, info?.yearsOfExperience]
+            cell?.textField.text = fields[indexPath.row]
             
             return cell!
         } else if section == 2 {
-            if resume == nil || resume!.workSummaries.count == 0 {
-                return createAddItemCell(title: "Add Work Experience", indexPath: indexPath)
-            } else {
+            if let count = resume?.workSummaries.count, count > 0, indexPath.row < count {
                 var cell = tableView.dequeueReusableCell(withIdentifier: WorkSummaryCell.identifier) as? WorkSummaryCell
                 if cell == nil {
                     cell = WorkSummaryCell.loadNib()
@@ -93,27 +112,27 @@ class ResumeViewController: UITableViewController, UITextFieldDelegate {
                 }
                 
                 return cell!
+            } else {
+                return createAddItemCell(title: "Add Work Experience", indexPath: indexPath)
             }
         } else if section == 3 {
-            if resume == nil || resume!.skills.count == 0 {
-                return createAddItemCell(title: "Add Skill", indexPath: indexPath)
-            } else {
+            if let count = resume?.skills.count, count > 0, indexPath.row < count {
                 var cell = tableView.dequeueReusableCell(withIdentifier: SkillCell.identifier) as? SkillCell
                 
                 if cell == nil {
                     cell = SkillCell.loadNib()
                 }
                 
-                if let skill = resume?.skills[indexPath.row] {
+                if let skill = resume?.skills[indexPath.row].name {
                     cell?.setup(skill: skill)
                 }
                 
                 return cell!
+            } else {
+                return createAddItemCell(title: "Add Skill", indexPath: indexPath)
             }
         } else if section == 4 {
-            if resume == nil || resume!.educationDetails.count == 0 {
-                return createAddItemCell(title: "Add Education", indexPath: indexPath)
-            } else {
+            if let count = resume?.educationDetails.count, count > 0, indexPath.row < count {
                 var cell = tableView.dequeueReusableCell(withIdentifier: EducationDetailCell.identifier) as? EducationDetailCell
                 
                 if cell == nil {
@@ -125,11 +144,11 @@ class ResumeViewController: UITableViewController, UITextFieldDelegate {
                 }
                 
                 return cell!
+            } else {
+                return createAddItemCell(title: "Add Education", indexPath: indexPath)
             }
         } else {
-            if resume == nil || resume!.projectDetails.count == 0 {
-                return createAddItemCell(title: "Add Project", indexPath: indexPath)
-            } else {
+            if let count = resume?.projectDetails.count, count > 0, indexPath.row < count {
                 var cell = tableView.dequeueReusableCell(withIdentifier: ProjectDetailCell.identifier) as? ProjectDetailCell
                 
                 if cell == nil {
@@ -141,38 +160,52 @@ class ResumeViewController: UITableViewController, UITextFieldDelegate {
                 }
                 
                 return cell!
+            } else {
+                return createAddItemCell(title: "Add Project", indexPath: indexPath)
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 2 {
+            if let count = resume?.workSummaries.count, count > 0 {
+                return "Work Experience"
+            }
+        } else if section == 3 {
+            if let count = resume?.skills.count, count > 0 {
+                return "Skills"
+            }
+        } else if section == 4 {
+            if let count = resume?.educationDetails.count, count > 0 {
+                return "Eductions"
+            }
+        } else if section == 5 {
+            if let count = resume?.educationDetails.count, count > 0 {
+                return "Projects"
+            }
+        }
         
+        return nil
+    }
+    
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // MARK: - UITextFieldDelegate
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        let postion = textField.convert(textField.bounds.origin, to: tableView)
-
-        guard let indexPath = tableView.indexPathForRow(at: postion) else {
-            return
-        }
-        
-        guard let text = textField.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else {
-            return
-        }
-        
+    // MARK: - BaseFormProtocol
+    override func didEdit(text: String, indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
-                Resume.shared.mobileNumber = text
+                model.mobileNumber = text
             } else if indexPath.row == 1 {
-                Resume.shared.emailAddress = text
+                model.emailAddress = text
             } else if indexPath.row == 2 {
-                Resume.shared.residenceAddress = text
+                model.residenceAddress = text
             } else if indexPath.row == 3 {
-                Resume.shared.careerObjective = text
-            } else if indexPath.row == 4, let num = Int(text) {
-                Resume.shared.yearsOfExperience = num
+                model.careerObjective = text
+            } else if indexPath.row == 4 {
+                model.yearsOfExperience = text
             }
         }
     }
@@ -185,12 +218,12 @@ class ResumeViewController: UITableViewController, UITextFieldDelegate {
         }
         
         cell?.setup(title: title)
-        cell?.addButton.addTarget(self, action: #selector(addItem(_:)), for: .touchUpInside)
+        cell?.addButton.addTarget(self, action: #selector(addResumeItem(_:)), for: .touchUpInside)
         
         return cell!
     }
     
-    @objc func addItem(_ sender: UIButton) {
+    @objc func addResumeItem(_ sender: UIButton) {
         let postion = sender.convert(sender.bounds.origin, to: tableView)
 
         if let indexPath = tableView.indexPathForRow(at: postion) {
@@ -198,13 +231,25 @@ class ResumeViewController: UITableViewController, UITextFieldDelegate {
             var controller: UIViewController?
             
             if section == 2 {
-                controller = WorkSummaryViewController()
+                controller = WorkSummaryViewController(completion: { obj in
+                    self.resume?.workSummaries.append(obj)
+                    self.tableView.reloadData()
+                })
             } else if section == 3 {
-                controller = SkillViewController()
+                controller = SkillViewController(completion: { obj in
+                    self.resume?.skills.append(obj)
+                    self.tableView.reloadData()
+                })
             } else if section == 4 {
-                controller = EducationDetailViewController()
+                controller = EducationDetailViewController(completion: { obj in
+                    self.resume?.educationDetails.append(obj)
+                    self.tableView.reloadData()
+                })
             } else if section == 5 {
-                controller = ProjectDetailViewController()
+                controller = ProjectDetailViewController(completion: { obj in
+                    self.resume?.projectDetails.append(obj)
+                    self.tableView.reloadData()
+                })
             }
             
             if let controller = controller {

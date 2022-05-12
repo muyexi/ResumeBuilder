@@ -7,25 +7,31 @@
 
 import Foundation
 
-struct Resume: Codable {
-    static var shared = Resume()
-
-    private init() {}
-    
+struct Resume: Codable, FormModelProtocol {
     var picture: String?
-    var mobileNumber: String?
-    var emailAddress: String?
-    var residenceAddress: String?
-    
-    var careerObjective: String?
-    var yearsOfExperience: Int?
+    var basicInfo: BasicInfo?
     
     var workSummaries: [WorkSummary] = []
-    var skills: [String] = []
+    var skills: [Skill] = []
     var educationDetails: [EducationDetail] = []
     var projectDetails: [ProjectDetail] = []
     
+    func validate() -> (isValid: Bool, msg: String?) {
+        let isValid = picture != nil
+        || basicInfo != nil
+        || workSummaries.count > 0
+        || skills.count > 0
+        || educationDetails.count > 0
+        || projectDetails.count > 0
+        
+        return (isValid, nil)
+    }
+    
     func save() {
+        if !validate().isValid {
+            return
+        }
+        
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(self)

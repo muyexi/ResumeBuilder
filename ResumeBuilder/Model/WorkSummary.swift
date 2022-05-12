@@ -8,18 +8,21 @@
 import Foundation
 
 protocol FormModelProtocol {
-    func isValid() -> Bool
+    init()
+    func validate() -> (isValid: Bool, msg: String?)
 }
 
 struct WorkSummary: Codable, FormModelProtocol {
     var companyName: String?
     var duration: String?
     
-    func isValid() -> Bool {
-        guard let companyName = companyName, let duration = duration else {
-            return false
+    func validate() -> (isValid: Bool, msg: String?) {
+        if companyName == nil || !companyName!.trimmingCharacters(in: .whitespaces).isEmpty {
+            return (false, "Missing Company Name")
+        } else if companyName == nil || !duration!.trimmingCharacters(in: .whitespaces).isEmpty {
+            return (false, "Missing Duration")
+        } else {
+            return (true, nil)
         }
-        
-        return !companyName.trimmingCharacters(in: .whitespaces).isEmpty && !duration.trimmingCharacters(in: .whitespaces).isEmpty
     }
 }

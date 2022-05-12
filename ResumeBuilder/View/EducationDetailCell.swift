@@ -21,8 +21,8 @@ class EducationDetailCell: UITableViewCell {
     }
     
     func setup(education: EducationDetail) {
-        classLabel.text = education.educationClass?.rawValue
-        yearLabel.text = education.passingYear?.description
-        gradeLabel.text = education.cgpa?.description
+        classLabel.text = education.educationClass
+        yearLabel.text = education.passingYear
+        gradeLabel.text = education.cgpa
     }
 }

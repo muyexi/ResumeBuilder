@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 
-class WorkSummaryViewController: BaseFormViewController {
-    var summary: WorkSummary = WorkSummary()
-    
+class WorkSummaryViewController: BaseFormViewController<WorkSummary> {
     override var titles: [String] {
         return ["Company Name", "Duration"]
     }
@@ -22,28 +20,12 @@ class WorkSummaryViewController: BaseFormViewController {
         title = "Work Summary"
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
     // MARK: - BaseFormProtocol
-    override func didEndEditing(text: String, indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
-                summary.companyName = text
-            } else if indexPath.row == 1 {
-                summary.duration = text
-            }
-        }
-    }
-    
-    // MARK: - Private
-    func save() {
-        if summary.isValid() {
-            dismiss(animated: true)
-        } else {
-            alertMissingData()
+    override func didEdit(text: String, indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            model.companyName = text
+        } else if indexPath.row == 1 {
+            model.duration = text
         }
     }
 }
