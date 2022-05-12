@@ -8,9 +8,9 @@
 import Foundation
 
 struct ProjectDetail: Codable {
-    var projectName: String?
+    var name: String?
     var teamSize: Int?
-    var projectSummary: String?
+    var summary: String?
     var usedTechnologies: [String]?
     var role: String?
 }

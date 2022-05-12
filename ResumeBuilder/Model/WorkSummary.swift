@@ -7,7 +7,19 @@
 
 import Foundation
 
-struct WorkSummary: Codable {
+protocol FormModelProtocol {
+    func isValid() -> Bool
+}
+
+struct WorkSummary: Codable, FormModelProtocol {
     var companyName: String?
     var duration: String?
+    
+    func isValid() -> Bool {
+        guard let companyName = companyName, let duration = duration else {
+            return false
+        }
+        
+        return !companyName.trimmingCharacters(in: .whitespaces).isEmpty && !duration.trimmingCharacters(in: .whitespaces).isEmpty
+    }
 }

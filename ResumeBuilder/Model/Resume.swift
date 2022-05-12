@@ -8,7 +8,7 @@
 import Foundation
 
 struct Resume: Codable {
-    static let shared = Resume()
+    static var shared = Resume()
 
     private init() {}
     
@@ -36,7 +36,7 @@ struct Resume: Codable {
         }
     }
     
-    func read() -> Resume? {
+    static func read() -> Resume? {
         if let data = UserDefaults.standard.data(forKey: "Resume") {
             do {
                 let decoder = JSONDecoder()
