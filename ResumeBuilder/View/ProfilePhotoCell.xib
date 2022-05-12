@@ -26,8 +26,8 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="n1K-4e-Wid" secondAttribute="bottom" constant="23" id="KpT-Cd-U3z"/>
-                    <constraint firstItem="n1K-4e-Wid" firstAttribute="top" secondItem="PQb-Zr-0UT" secondAttribute="topMargin" constant="15" id="VAi-eN-Em6"/>
+                    <constraint firstAttribute="bottom" secondItem="n1K-4e-Wid" secondAttribute="bottom" constant="34" id="81M-Q5-SgY"/>
+                    <constraint firstItem="n1K-4e-Wid" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PQb-Zr-0UT" secondAttribute="top" constant="20" id="lX7-WP-S18"/>
                     <constraint firstItem="n1K-4e-Wid" firstAttribute="centerX" secondItem="PQb-Zr-0UT" secondAttribute="centerX" id="ovi-Mm-Suq"/>
                 </constraints>
             </tableViewCellContentView>

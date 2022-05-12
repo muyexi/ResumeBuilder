@@ -24,8 +24,9 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="zIm-OD-HoK" firstAttribute="top" secondItem="fuV-tr-HYm" secondAttribute="top" constant="8" id="07c-mI-aP7"/>
                     <constraint firstItem="zIm-OD-HoK" firstAttribute="centerX" secondItem="fuV-tr-HYm" secondAttribute="centerX" id="C3D-tB-A91"/>
-                    <constraint firstItem="zIm-OD-HoK" firstAttribute="centerY" secondItem="fuV-tr-HYm" secondAttribute="centerY" id="Rn0-58-LFq"/>
+                    <constraint firstAttribute="bottom" secondItem="zIm-OD-HoK" secondAttribute="bottom" constant="8" id="OPh-5u-l5T"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

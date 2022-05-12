@@ -93,7 +93,7 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="132" id="z1J-Bc-Hyd"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="132" id="z1J-Bc-Hyd"/>
                         </constraints>
                     </stackView>
                 </subviews>

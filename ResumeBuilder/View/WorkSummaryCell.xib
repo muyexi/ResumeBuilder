@@ -37,7 +37,6 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="32k-wb-DJF"/>
                                     <constraint firstAttribute="trailing" secondItem="JJt-3N-y5T" secondAttribute="trailing" constant="15" id="DgS-IO-cFY"/>
                                     <constraint firstItem="f6i-Os-oVx" firstAttribute="centerY" secondItem="trY-WY-XPI" secondAttribute="centerY" id="Ds5-gg-GG2"/>
                                     <constraint firstItem="JJt-3N-y5T" firstAttribute="centerY" secondItem="trY-WY-XPI" secondAttribute="centerY" id="IdT-Tn-eYa"/>
@@ -66,10 +65,12 @@
                                     <constraint firstItem="hpk-0g-vcf" firstAttribute="leading" secondItem="5vc-hb-zg9" secondAttribute="leading" constant="15" id="N6b-IR-tOg"/>
                                     <constraint firstAttribute="trailing" secondItem="fJR-mf-auY" secondAttribute="trailing" constant="15" id="Yht-IY-J80"/>
                                     <constraint firstItem="fJR-mf-auY" firstAttribute="centerY" secondItem="5vc-hb-zg9" secondAttribute="centerY" id="oNe-to-CeC"/>
-                                    <constraint firstAttribute="height" constant="44" id="wCc-Fy-gKx"/>
                                 </constraints>
                             </view>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="ZCb-xR-1eL"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>

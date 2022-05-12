@@ -24,7 +24,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="PTU-5r-hFe" firstAttribute="centerX" secondItem="fvL-3Q-4zo" secondAttribute="centerX" id="1hA-Js-gmZ"/>
-                    <constraint firstItem="PTU-5r-hFe" firstAttribute="centerY" secondItem="fvL-3Q-4zo" secondAttribute="centerY" id="qgw-rg-Gje"/>
+                    <constraint firstItem="PTU-5r-hFe" firstAttribute="top" secondItem="fvL-3Q-4zo" secondAttribute="top" constant="13.5" id="5Nf-fZ-643"/>
+                    <constraint firstAttribute="bottom" secondItem="PTU-5r-hFe" secondAttribute="bottom" constant="13.5" id="e6Z-yW-LmF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

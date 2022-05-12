@@ -141,7 +141,7 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="220" id="gby-MS-8gM"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="gby-MS-8gM"/>
                         </constraints>
                     </stackView>
                 </subviews>

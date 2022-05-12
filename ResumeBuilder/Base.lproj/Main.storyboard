@@ -54,22 +54,23 @@
                             <tableViewSection id="wpq-Qx-tYb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AddNew" id="CLu-hv-SdY">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CLu-hv-SdY" id="ZLf-eB-QKB">
-                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Resume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42n-a5-ptV">
-                                                    <rect key="frame" x="136" y="13.5" width="114" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Resume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42n-a5-ptV">
+                                                    <rect key="frame" x="143.5" y="13.5" width="98.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="42n-a5-ptV" firstAttribute="centerY" secondItem="ZLf-eB-QKB" secondAttribute="centerY" id="OxY-AS-py6"/>
-                                                <constraint firstItem="42n-a5-ptV" firstAttribute="centerX" secondItem="ZLf-eB-QKB" secondAttribute="centerX" id="Yqn-5R-2RD"/>
+                                                <constraint firstItem="42n-a5-ptV" firstAttribute="top" secondItem="ZLf-eB-QKB" secondAttribute="top" constant="13.5" id="8Vm-cv-jOV"/>
+                                                <constraint firstAttribute="bottom" secondItem="42n-a5-ptV" secondAttribute="bottom" constant="13" id="Cld-MX-H4e"/>
+                                                <constraint firstItem="42n-a5-ptV" firstAttribute="centerX" secondItem="ZLf-eB-QKB" secondAttribute="centerX" id="S9l-cd-jr7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

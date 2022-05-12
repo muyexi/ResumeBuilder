@@ -28,7 +28,7 @@
                             <constraint firstAttribute="height" constant="30" id="xKL-ik-aep"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9I-TU-aNe">
                         <rect key="frame" x="249" y="36" width="150" height="1"/>
@@ -40,7 +40,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="F9I-TU-aNe" firstAttribute="trailing" secondItem="otJ-Nf-JXh" secondAttribute="trailing" id="GN0-mR-2M8"/>
+                    <constraint firstAttribute="bottom" secondItem="81I-Ai-sfi" secondAttribute="bottom" constant="13.5" id="GZ1-Ac-pZP"/>
                     <constraint firstItem="F9I-TU-aNe" firstAttribute="top" secondItem="otJ-Nf-JXh" secondAttribute="bottom" constant="-1" id="HXT-CH-wgR"/>
+                    <constraint firstItem="81I-Ai-sfi" firstAttribute="top" secondItem="hjm-h6-AKD" secondAttribute="top" constant="13.5" id="PGD-oH-WOD"/>
                     <constraint firstItem="otJ-Nf-JXh" firstAttribute="centerY" secondItem="hjm-h6-AKD" secondAttribute="centerY" id="RWP-KK-zw0"/>
                     <constraint firstItem="F9I-TU-aNe" firstAttribute="leading" secondItem="otJ-Nf-JXh" secondAttribute="leading" id="Uxe-G1-KN8"/>
                     <constraint firstAttribute="trailing" secondItem="otJ-Nf-JXh" secondAttribute="trailing" constant="15" id="bDC-Fc-Tat"/>
