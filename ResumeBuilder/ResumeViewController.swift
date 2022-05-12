@@ -7,9 +7,11 @@
 
 import UIKit
 
-class ResumeViewController: BaseFormViewController<BasicInfo> {
+class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var resume: Resume?
+    
+    var imagePicker = UIImagePickerController()
     
     override var titles: [String] {
         return ["Mobile number", "Email Address", "Residence Address", "Career Objective", "Total Years of experience"]
@@ -85,10 +87,15 @@ class ResumeViewController: BaseFormViewController<BasicInfo> {
         let section = indexPath.section
         
         if section == 0 {
-            var cell = tableView.dequeueReusableCell(withIdentifier: ProfilePhotoCell.identifier)
+            var cell = tableView.dequeueReusableCell(withIdentifier: ProfilePhotoCell.identifier) as? ProfilePhotoCell
             
             if cell == nil {
                 cell = ProfilePhotoCell.loadNib()
+                cell?.profileImageButton.addTarget(self, action: #selector(pickPhoto), for: .touchUpInside)
+            }
+            
+            if let picture = self.resume?.picture, let image = UIImage(data: picture) {
+                cell?.profileImageButton.setBackgroundImage(image, for: .normal)
             }
             
             return cell!
@@ -210,6 +217,16 @@ class ResumeViewController: BaseFormViewController<BasicInfo> {
         }
     }
     
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        if let image = info[.originalImage] as? UIImage {
+            resume?.picture = image.pngData()
+            tableView.reloadData()
+        }
+    }
+    
     // MARK: - Private
     func createAddItemCell(title: String, indexPath: IndexPath) -> AddItemCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: AddItemCell.identifier) as? AddItemCell
@@ -259,5 +276,13 @@ class ResumeViewController: BaseFormViewController<BasicInfo> {
         }
     }
     
-    
+    @objc func pickPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
 }

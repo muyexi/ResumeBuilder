@@ -9,13 +9,10 @@ import Foundation
 import UIKit
 
 class ProfilePhotoCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profileImageButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        titleLabel.text = "Profile Picture"
         
         profileImageButton.layer.cornerRadius = profileImageButton.frame.width / 2
         profileImageButton.layer.masksToBounds = true

@@ -25,9 +25,9 @@
 		8D351492282CAA9B009A47EE /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351491282CAA9B009A47EE /* BasicInfo.swift */; };
 		8D351493282CAA9B009A47EE /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351491282CAA9B009A47EE /* BasicInfo.swift */; };
 		8D351494282CAA9B009A47EE /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D351491282CAA9B009A47EE /* BasicInfo.swift */; };
-		8D3C1603282D138F00AE22AA /* OptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1602282D138F00AE22AA /* OptionalString.swift */; };
-		8D3C1604282D138F00AE22AA /* OptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1602282D138F00AE22AA /* OptionalString.swift */; };
-		8D3C1605282D138F00AE22AA /* OptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1602282D138F00AE22AA /* OptionalString.swift */; };
+		8D3C1603282D138F00AE22AA /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1602282D138F00AE22AA /* Optional+Extension.swift */; };
+		8D3C1604282D138F00AE22AA /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1602282D138F00AE22AA /* Optional+Extension.swift */; };
+		8D3C1605282D138F00AE22AA /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1602282D138F00AE22AA /* Optional+Extension.swift */; };
 		8D58E644282BBBCE001E46EC /* ResumeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E643282BBBCE001E46EC /* ResumeTextField.swift */; };
 		8D58E646282BBD41001E46EC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E645282BBD41001E46EC /* NSObject+Extension.swift */; };
 		8D58E647282BBD41001E46EC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E645282BBD41001E46EC /* NSObject+Extension.swift */; };
@@ -138,7 +138,7 @@
 		8D351488282C1554009A47EE /* BaseFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFormViewController.swift; sourceTree = "<group>"; };
 		8D35148C282CA46D009A47EE /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		8D351491282CAA9B009A47EE /* BasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfo.swift; sourceTree = "<group>"; };
-		8D3C1602282D138F00AE22AA /* OptionalString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalString.swift; sourceTree = "<group>"; };
+		8D3C1602282D138F00AE22AA /* Optional+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		8D58E643282BBBCE001E46EC /* ResumeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeTextField.swift; sourceTree = "<group>"; };
 		8D58E645282BBD41001E46EC /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		8D58E651282BCD45001E46EC /* SkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewController.swift; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 		8D8B8F12282A626F00862D78 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8D3C1602282D138F00AE22AA /* OptionalString.swift */,
+				8D3C1602282D138F00AE22AA /* Optional+Extension.swift */,
 				8D8B8F13282A629100862D78 /* UIView+Extension.swift */,
 				8D58E645282BBD41001E46EC /* NSObject+Extension.swift */,
 			);
@@ -587,7 +587,7 @@
 				8D351489282C1554009A47EE /* BaseFormViewController.swift in Sources */,
 				8D58E652282BCD45001E46EC /* SkillViewController.swift in Sources */,
 				8D58E644282BBBCE001E46EC /* ResumeTextField.swift in Sources */,
-				8D3C1603282D138F00AE22AA /* OptionalString.swift in Sources */,
+				8D3C1603282D138F00AE22AA /* Optional+Extension.swift in Sources */,
 				8D8B8F34282A6A4700862D78 /* SkillCell.swift in Sources */,
 				8D8B8F24282A63D400862D78 /* EducationDetailCell.swift in Sources */,
 				8D8B8EB7282A4A7000862D78 /* ResumeViewController.swift in Sources */,
@@ -612,7 +612,7 @@
 				8D8B8EEB282A4CE900862D78 /* WorkSummary.swift in Sources */,
 				8D351493282CAA9B009A47EE /* BasicInfo.swift in Sources */,
 				8D8B8F04282A5EA800862D78 /* FieldCell.swift in Sources */,
-				8D3C1604282D138F00AE22AA /* OptionalString.swift in Sources */,
+				8D3C1604282D138F00AE22AA /* Optional+Extension.swift in Sources */,
 				8D8B8F19282A632200862D78 /* WorkSummaryCell.swift in Sources */,
 				8D8B8EFB282A590000862D78 /* ProjectDetailViewController.swift in Sources */,
 				8D58E653282BCD45001E46EC /* SkillViewController.swift in Sources */,
@@ -638,7 +638,7 @@
 				8D8B8EF8282A58B700862D78 /* WorkSummaryViewController.swift in Sources */,
 				8D351494282CAA9B009A47EE /* BasicInfo.swift in Sources */,
 				8D58E654282BCD45001E46EC /* SkillViewController.swift in Sources */,
-				8D3C1605282D138F00AE22AA /* OptionalString.swift in Sources */,
+				8D3C1605282D138F00AE22AA /* Optional+Extension.swift in Sources */,
 				8D8B8EEC282A4CE900862D78 /* WorkSummary.swift in Sources */,
 				8D8B8ED4282A4A7200862D78 /* ResumeBuilderUITests.swift in Sources */,
 				8D351487282C1155009A47EE /* HomeViewController.swift in Sources */,
@@ -821,6 +821,8 @@
 				DEVELOPMENT_TEAM = AAKJL3KUU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ResumeBuilder/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -850,6 +852,8 @@
 				DEVELOPMENT_TEAM = AAKJL3KUU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ResumeBuilder/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct Resume: Codable, FormModelProtocol {
-    var picture: String?
+    var picture: Data?
     var basicInfo: BasicInfo?
     
     var workSummaries: [WorkSummary] = []
