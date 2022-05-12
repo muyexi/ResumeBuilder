@@ -17,9 +17,9 @@ struct WorkSummary: Codable, FormModelProtocol {
     var duration: String?
     
     func validate() -> (isValid: Bool, msg: String?) {
-        if companyName == nil || !companyName!.trimmingCharacters(in: .whitespaces).isEmpty {
+        if companyName.isNilOrEmpty {
             return (false, "Missing Company Name")
-        } else if companyName == nil || !duration!.trimmingCharacters(in: .whitespaces).isEmpty {
+        } else if duration.isNilOrEmpty {
             return (false, "Missing Duration")
         } else {
             return (true, nil)

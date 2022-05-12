@@ -15,11 +15,11 @@ struct ProjectDetail: Codable, FormModelProtocol {
     var role: String?
     
     func validate() -> (isValid: Bool, msg: String?) {
-        guard let name = name, !name.trimmingCharacters(in: .whitespaces).isEmpty,
-              let _ = teamSize,
-              let summary = summary, !summary.trimmingCharacters(in: .whitespaces).isEmpty,
-              let technologies = usedTechnologies, !technologies.trimmingCharacters(in: .whitespaces).isEmpty,
-              let role = role, !role.trimmingCharacters(in: .whitespaces).isEmpty else {
+        if teamSize == nil
+              || name.isNilOrEmpty
+              || summary.isNilOrEmpty
+              || usedTechnologies.isNilOrEmpty
+              || role.isNilOrEmpty {
             return (false, "Missing Data")
         }
         

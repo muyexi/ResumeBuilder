@@ -11,7 +11,7 @@ struct Skill: Codable, FormModelProtocol {
     var name: String?
     
     func validate() -> (isValid: Bool, msg: String?) {
-        guard let name = name, !name.trimmingCharacters(in: .whitespaces).isEmpty else {
+        if name.isNilOrEmpty {
             return (false, "Missing Data")
         }
         

@@ -19,15 +19,15 @@ struct EducationDetail: Codable, FormModelProtocol {
     var cgpa: String?
     
     func validate() -> (isValid: Bool, msg: String?) {
-        guard let _ = educationClass, let passingYear = passingYear, let cgpa = cgpa else {
+        if educationClass.isNilOrEmpty || passingYear.isNilOrEmpty || cgpa.isNilOrEmpty {
             return (false, "Missing data")
         }
         
-        if Int(passingYear) == nil {
+        if let passingYear = passingYear, Int(passingYear) == nil {
             return (false, "Wrong Passing Year")
         }
         
-        if Double(cgpa) == nil {
+        if let cgpa = cgpa, Double(cgpa) == nil {
             return (false, "Wrong CGPA")
         }
         

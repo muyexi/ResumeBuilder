@@ -16,11 +16,11 @@ struct BasicInfo: Codable, FormModelProtocol {
     var yearsOfExperience: String?
     
     func validate() -> (isValid: Bool, msg: String?) {
-        guard let mobileNumber = mobileNumber, !mobileNumber.trimmingCharacters(in: .whitespaces).isEmpty,
-              let emailAddress = emailAddress, !emailAddress.trimmingCharacters(in: .whitespaces).isEmpty,
-              let residenceAddress = residenceAddress, !residenceAddress.trimmingCharacters(in: .whitespaces).isEmpty,
-              let careerObjective = careerObjective, !careerObjective.trimmingCharacters(in: .whitespaces).isEmpty,
-              let yearsOfExperience = yearsOfExperience, !yearsOfExperience.trimmingCharacters(in: .whitespaces).isEmpty else {
+        if mobileNumber.isNilOrEmpty
+            || emailAddress.isNilOrEmpty
+            || residenceAddress.isNilOrEmpty
+            || careerObjective.isNilOrEmpty
+            || yearsOfExperience.isNilOrEmpty {
             return (false, "Missing Data")
         }
                 
