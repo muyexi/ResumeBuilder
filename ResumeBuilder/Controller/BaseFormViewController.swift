@@ -30,6 +30,7 @@ class BaseFormViewController<T: FormModelProtocol>: UITableViewController, UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.allowsSelection = false
         tableView.separatorColor = .clear
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "DONE", style: .done, target: self, action: #selector(save))
     }
@@ -72,10 +73,11 @@ class BaseFormViewController<T: FormModelProtocol>: UITableViewController, UITex
         return true
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    
+        
     // MARK: - BaseFormProtocol
     func didEdit(text: String, indexPath: IndexPath) {
         

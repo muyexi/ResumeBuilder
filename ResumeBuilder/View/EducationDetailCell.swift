@@ -14,12 +14,6 @@ class EducationDetailCell: UITableViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var gradeLabel: UILabel!
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     func setup(education: EducationDetail) {
         classLabel.text = education.educationClass
         yearLabel.text = education.passingYear

@@ -24,17 +24,11 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
         tableView.estimatedRowHeight = 44
         tableView.separatorColor = .clear
         
-        navigationItem.rightBarButtonItem = nil
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Print", style: .done, target: self, action: #selector(share))
         
         if let info = resume?.basicInfo {
             model = info
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -187,12 +181,63 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
                 return "Eductions"
             }
         } else if section == 5 {
-            if let count = resume?.educationDetails.count, count > 0 {
+            if let count = resume?.projectDetails.count, count > 0 {
                 return "Projects"
             }
         }
         
         return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let section = indexPath.section
+        
+        if section == 2 {
+            if let count = resume?.workSummaries.count, count > 0 {
+                return true
+            }
+        } else if section == 3 {
+            if let count = resume?.skills.count, count > 0 {
+                return true
+            }
+        } else if section == 4 {
+            if let count = resume?.educationDetails.count, count > 0 {
+                return true
+            }
+        } else if section == 5 {
+            if let count = resume?.projectDetails.count, count > 0 {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        if section == 2 {
+            if let count = resume?.workSummaries.count, count > 0, editingStyle == .delete {
+                resume?.workSummaries.remove(at: row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        } else if section == 3 {
+            if let count = resume?.skills.count, count > 0 {
+                resume?.skills.remove(at: row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        } else if section == 4 {
+            if let count = resume?.educationDetails.count, count > 0 {
+                resume?.educationDetails.remove(at: row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        } else if section == 5 {
+            if let count = resume?.projectDetails.count, count > 0 {
+                resume?.projectDetails.remove(at: row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
     }
     
     // MARK: - UITableViewDelegate
@@ -284,5 +329,26 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
 
             present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    @objc func share() {
+        let url = tableView.createPDF()
+        printPDF(fileURL: url)
+    }
+    
+    func printPDF(fileURL: URL) {
+        if UIPrintInteractionController.canPrint(fileURL) {
+            let printInfo = UIPrintInfo(dictionary: nil)
+            printInfo.jobName = fileURL.lastPathComponent
+            printInfo.outputType = .photo
+
+            let printController = UIPrintInteractionController.shared
+            printController.printInfo = printInfo
+            printController.showsNumberOfCopies = false
+
+            printController.printingItem = fileURL
+
+            printController.present(animated: true)
+      }
     }
 }

@@ -33,13 +33,15 @@ struct Resume: Codable, FormModelProtocol {
             return
         }
         
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(self)
-
-            UserDefaults.standard.set(data, forKey: "Resume")
-        } catch {
-            print(error)
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(self)
+                
+                UserDefaults.standard.set(data, forKey: "Resume")
+            } catch {
+                print(error)
+            }
         }
     }
     

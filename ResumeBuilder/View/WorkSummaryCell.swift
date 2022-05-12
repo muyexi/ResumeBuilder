@@ -12,12 +12,6 @@ class WorkSummaryCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     func setup(workSummary: WorkSummary) {
         titleLabel.text = workSummary.companyName
         durationLabel.text = workSummary.duration

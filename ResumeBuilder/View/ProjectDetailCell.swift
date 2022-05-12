@@ -15,12 +15,6 @@ class ProjectDetailCell: UITableViewCell {
     @IBOutlet weak var technologyLabel: UILabel!
     @IBOutlet weak var roleLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     func setup(project: ProjectDetail) {
         nameLabel.text = project.name
         sizeLabel.text = project.teamSize?.description

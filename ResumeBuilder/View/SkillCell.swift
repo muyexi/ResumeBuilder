@@ -9,15 +9,8 @@ import Foundation
 import UIKit
 
 class SkillCell: UITableViewCell {
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
         
-        
-    }
-    
     func setup(skill: String) {
         nameLabel.text = skill
     }

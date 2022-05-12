@@ -15,12 +15,6 @@ class FieldCell: UITableViewCell, UITextFieldDelegate {
     
     var indexPath: IndexPath?
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     func setup(title: String) {
         titleLabel.text = title
     }

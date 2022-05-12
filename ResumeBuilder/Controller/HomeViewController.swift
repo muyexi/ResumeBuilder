@@ -16,16 +16,22 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        DispatchQueue.global(qos: .background).async {
+            self.resume = Resume.read() ?? Resume()
+
+            DispatchQueue.main.async {
+                if let resume = self.resume, resume.validate().isValid {
+                    self.titleLabel.text = "Edit Resume"
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        resume = Resume.read() ?? Resume()
-        
-        if let resume = resume, resume.validate().isValid {
-            titleLabel.text = "Edit Resume"
+        if let resume = self.resume, resume.validate().isValid {
+            self.titleLabel.text = "Edit Resume"
         }
     }
         
