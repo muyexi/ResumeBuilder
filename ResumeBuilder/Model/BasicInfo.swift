@@ -17,10 +17,10 @@ struct BasicInfo: Codable, FormModelProtocol {
     
     func validate() -> (isValid: Bool, msg: String?) {
         if mobileNumber.isNilOrEmpty
-            || emailAddress.isNilOrEmpty
-            || residenceAddress.isNilOrEmpty
-            || careerObjective.isNilOrEmpty
-            || yearsOfExperience.isNilOrEmpty {
+            && emailAddress.isNilOrEmpty
+            && residenceAddress.isNilOrEmpty
+            && careerObjective.isNilOrEmpty
+            && yearsOfExperience.isNilOrEmpty {
             return (false, "Missing Data")
         }
                 

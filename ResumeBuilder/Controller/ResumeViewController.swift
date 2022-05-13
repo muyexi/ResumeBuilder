@@ -14,7 +14,7 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
     var imagePicker = UIImagePickerController()
     
     override var titles: [String] {
-        return ["Mobile number", "Email Address", "Residence Address", "Career Objective", "Total Years of experience"]
+        return ["Mobile Number", "Email Address", "Residence Address", "Career Objective", "Total Years of experience"]
     }
 
     override func viewDidLoad() {
@@ -28,14 +28,20 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
         
         if let info = resume?.basicInfo {
             model = info
+        } else {
+            model = BasicInfo()
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        resume?.basicInfo = model
+        if model.validate().isValid {
+            resume?.basicInfo = model
+        }
+        
         resume?.save()
+        completion?(self.model)
     }
     
     // MARK: - UITableViewDataSource

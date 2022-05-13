@@ -59,4 +59,9 @@ struct Resume: Codable, FormModelProtocol {
         
         return nil
     }
+    
+    static func clear() {
+        UserDefaults.standard.set(nil, forKey: "Resume")
+        UserDefaults.standard.synchronize()
+    }
 }
