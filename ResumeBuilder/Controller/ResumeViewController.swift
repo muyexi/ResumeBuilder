@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  ResumeBuilder
-//
-//  Created by muyexi on 2022/5/10.
-//
-
 import UIKit
 
 class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerControllerDelegate, UINavigationControllerDelegate {

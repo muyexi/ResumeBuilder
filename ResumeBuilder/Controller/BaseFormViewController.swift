@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  ResumeBuilder
-//
-//  Created by muyexi on 2022/5/12.
-//
-
 import Foundation
 import UIKit
 

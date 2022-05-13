@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  ResumeBuilder
-//
-//  Created by muyexi on 2022/5/10.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

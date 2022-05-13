@@ -34,7 +34,6 @@
 		8D3C160C282D436D00AE22AA /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C160B282D436D00AE22AA /* UIScrollView+Extension.swift */; };
 		8D3C160D282D436D00AE22AA /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C160B282D436D00AE22AA /* UIScrollView+Extension.swift */; };
 		8D3C160E282D436D00AE22AA /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C160B282D436D00AE22AA /* UIScrollView+Extension.swift */; };
-		8D58E644282BBBCE001E46EC /* ResumeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E643282BBBCE001E46EC /* ResumeTextField.swift */; };
 		8D58E646282BBD41001E46EC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E645282BBD41001E46EC /* NSObject+Extension.swift */; };
 		8D58E647282BBD41001E46EC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E645282BBD41001E46EC /* NSObject+Extension.swift */; };
 		8D58E648282BBD41001E46EC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D58E645282BBD41001E46EC /* NSObject+Extension.swift */; };
@@ -146,7 +145,6 @@
 		8D3C1602282D138F00AE22AA /* Optional+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		8D3C1606282D1B9B00AE22AA /* ResumeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
 		8D3C160B282D436D00AE22AA /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
-		8D58E643282BBBCE001E46EC /* ResumeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeTextField.swift; sourceTree = "<group>"; };
 		8D58E645282BBD41001E46EC /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		8D58E651282BCD45001E46EC /* SkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewController.swift; sourceTree = "<group>"; };
 		8D8B8EAF282A4A7000862D78 /* ResumeBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResumeBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,7 +258,6 @@
 				8D8B8EBB282A4A7200862D78 /* Assets.xcassets */,
 				8D8B8EBD282A4A7200862D78 /* LaunchScreen.storyboard */,
 				8D8B8EC0282A4A7200862D78 /* Info.plist */,
-				8D58E643282BBBCE001E46EC /* ResumeTextField.swift */,
 			);
 			path = ResumeBuilder;
 			sourceTree = "<group>";
@@ -595,7 +592,6 @@
 				8D8B8EEE282A4CFE00862D78 /* ProjectDetail.swift in Sources */,
 				8D351489282C1554009A47EE /* BaseFormViewController.swift in Sources */,
 				8D58E652282BCD45001E46EC /* SkillViewController.swift in Sources */,
-				8D58E644282BBBCE001E46EC /* ResumeTextField.swift in Sources */,
 				8D3C1603282D138F00AE22AA /* Optional+Extension.swift in Sources */,
 				8D8B8F34282A6A4700862D78 /* SkillCell.swift in Sources */,
 				8D8B8F24282A63D400862D78 /* EducationDetailCell.swift in Sources */,

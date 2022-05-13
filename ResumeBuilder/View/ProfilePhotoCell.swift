@@ -1,10 +1,3 @@
-//
-//  ProfilePhotoCell.swift
-//  ResumeBuilder
-//
-//  Created by muyexi on 2022/5/10.
-//
-
 import Foundation
 import UIKit
 

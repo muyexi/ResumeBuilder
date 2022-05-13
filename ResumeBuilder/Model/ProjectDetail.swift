@@ -1,10 +1,3 @@
-//
-//  ProjectDetail.swift
-//  ResumeBuilder
-//
-//  Created by muyexi on 2022/5/10.
-//
-
 import Foundation
 
 struct ProjectDetail: Codable, FormModelProtocol {
