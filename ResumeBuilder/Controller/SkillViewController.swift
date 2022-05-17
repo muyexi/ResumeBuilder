@@ -13,7 +13,7 @@ class SkillViewController: BaseFormViewController<Skill> {
     }
     
     // MARK: - BaseFormProtocol
-    override func didEdit(text: String, indexPath: IndexPath) {
+    override func didEditTextField(text: String, indexPath: IndexPath) {
         if indexPath.row == 0 {
             model.name = text
         }

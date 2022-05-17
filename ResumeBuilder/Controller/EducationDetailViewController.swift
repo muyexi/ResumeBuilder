@@ -13,7 +13,7 @@ class EducationDetailViewController: BaseFormViewController<EducationDetail> {
     }
     
     // MARK: - BaseFormProtocol
-    override func didEdit(text: String, indexPath: IndexPath) {
+    override func didEditTextField(text: String, indexPath: IndexPath) {
         if indexPath.row == 0 {
             model.educationClass = text
         } else if indexPath.row == 1 {

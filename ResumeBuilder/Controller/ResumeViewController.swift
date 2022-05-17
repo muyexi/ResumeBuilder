@@ -167,22 +167,14 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 2 {
-            if let count = resume?.workSummaries.count, count > 0 {
-                return "Work Experience"
-            }
-        } else if section == 3 {
-            if let count = resume?.skills.count, count > 0 {
-                return "Skills"
-            }
-        } else if section == 4 {
-            if let count = resume?.educationDetails.count, count > 0 {
-                return "Eductions"
-            }
-        } else if section == 5 {
-            if let count = resume?.projectDetails.count, count > 0 {
-                return "Projects"
-            }
+        if section == 2, let count = resume?.workSummaries.count, count > 0 {
+            return "Work Experience"
+        } else if section == 3, let count = resume?.skills.count, count > 0 {
+            return "Skills"
+        } else if section == 4, let count = resume?.educationDetails.count, count > 0 {
+            return "Eductions"
+        } else if section == 5, let count = resume?.projectDetails.count, count > 0 {
+            return "Projects"
         }
         
         return nil
@@ -191,51 +183,37 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let section = indexPath.section
         
-        if section == 2 {
-            if let count = resume?.workSummaries.count, count > 0 {
-                return true
-            }
-        } else if section == 3 {
-            if let count = resume?.skills.count, count > 0 {
-                return true
-            }
-        } else if section == 4 {
-            if let count = resume?.educationDetails.count, count > 0 {
-                return true
-            }
-        } else if section == 5 {
-            if let count = resume?.projectDetails.count, count > 0 {
-                return true
-            }
+        if section == 2, let count = resume?.workSummaries.count, count > 0 {
+            return true
+        } else if section == 3, let count = resume?.skills.count, count > 0 {
+            return true
+        } else if section == 4, let count = resume?.educationDetails.count, count > 0 {
+            return true
+        } else if section == 5, let count = resume?.projectDetails.count, count > 0 {
+            return true
         }
         
         return false
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
         
-        if section == 2 {
-            if let count = resume?.workSummaries.count, count > 0, editingStyle == .delete {
-                resume?.workSummaries.remove(at: row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        } else if section == 3 {
-            if let count = resume?.skills.count, count > 0 {
-                resume?.skills.remove(at: row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        } else if section == 4 {
-            if let count = resume?.educationDetails.count, count > 0 {
-                resume?.educationDetails.remove(at: row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        } else if section == 5 {
-            if let count = resume?.projectDetails.count, count > 0 {
-                resume?.projectDetails.remove(at: row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
+        if section == 2, let count = resume?.workSummaries.count, count > 0, editingStyle == .delete {
+            resume?.workSummaries.remove(at: row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if section == 3, let count = resume?.skills.count, count > 0 {
+            resume?.skills.remove(at: row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if section == 4, let count = resume?.educationDetails.count, count > 0 {
+            resume?.educationDetails.remove(at: row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if section == 5, let count = resume?.projectDetails.count, count > 0 {
+            resume?.projectDetails.remove(at: row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -245,7 +223,7 @@ class ResumeViewController: BaseFormViewController<BasicInfo>, UIImagePickerCont
     }
     
     // MARK: - BaseFormProtocol
-    override func didEdit(text: String, indexPath: IndexPath) {
+    override func didEditTextField(text: String, indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 model.mobileNumber = text

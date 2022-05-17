@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 protocol BaseFormProtocol {
-    func didEdit(text: String, indexPath: IndexPath)
+    func didEditTextField(text: String, indexPath: IndexPath)
 }
 
 class BaseFormViewController<T: FormModelProtocol>: UITableViewController, UITextFieldDelegate, BaseFormProtocol {
@@ -59,7 +59,7 @@ class BaseFormViewController<T: FormModelProtocol>: UITableViewController, UITex
             let newText = text.replacingCharacters(in: range, with: string).trimmingCharacters(in: .whitespaces)
             
             if !newText.isEmpty {
-                didEdit(text: newText, indexPath: indexPath)
+                didEditTextField(text: newText, indexPath: indexPath)
             }
         }
         
@@ -72,19 +72,19 @@ class BaseFormViewController<T: FormModelProtocol>: UITableViewController, UITex
     }
         
     // MARK: - BaseFormProtocol
-    func didEdit(text: String, indexPath: IndexPath) {
+    func didEditTextField(text: String, indexPath: IndexPath) {
         
     }
     
     // MARK: - Private
-    func alert(title: String, showDiscard: Bool = false) {
+    func alert(title: String, isDismissable: Bool = false) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "Discard", style: .cancel) { action in
+        let dismissAction = UIAlertAction(title: "Discard", style: .cancel) { action in
             self.dismiss(animated: true)
         }
-        if showDiscard {
-            alert.addAction(cancelAction)
+        if isDismissable {
+            alert.addAction(dismissAction)
         }
         
         let confirmAction = UIAlertAction(title: "Confirm", style: .default, handler: nil)
@@ -99,7 +99,7 @@ class BaseFormViewController<T: FormModelProtocol>: UITableViewController, UITex
             dismiss(animated: true)
             self.completion?(self.model)
         } else {
-            alert(title: result.msg ?? "Data is not valid!", showDiscard: true)
+            alert(title: result.msg ?? "Data is not valid!", isDismissable: true)
         }
     }
 }

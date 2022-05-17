@@ -14,7 +14,7 @@ class WorkSummaryViewController: BaseFormViewController<WorkSummary> {
     }
     
     // MARK: - BaseFormProtocol
-    override func didEdit(text: String, indexPath: IndexPath) {
+    override func didEditTextField(text: String, indexPath: IndexPath) {
         if indexPath.row == 0 {
             model.companyName = text
         } else if indexPath.row == 1 {
